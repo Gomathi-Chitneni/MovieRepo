@@ -24,10 +24,10 @@ public class Movie {
 	private String moviename;
 
 	@Lob
-	@Column(name="CAST")
+	@Column(name = "CAST")
 	private String castString;
 	private transient Cast cast;
-	
+
 	public String getCastString() {
 		return castString;
 	}
@@ -51,6 +51,7 @@ public class Movie {
 		return cast;
 	}
 
+	@Transient
 	public void setCast(Cast cast) {
 		this.cast = cast;
 	}

@@ -20,11 +20,11 @@ public class Theater {
 	@Column(length = 50)
 	private String theatername;
 
-	private int availableseats;
+	private float price;
 
 	@ManyToMany
 	@JoinTable(name = "theater_movie", joinColumns = @JoinColumn(name = "theatername"), inverseJoinColumns = @JoinColumn(name = "moviename"))
-	List<Movie> assignedmovies;
+	List<Movie> assignedmovies = new ArrayList<>();
 
 	public String getTheatername() {
 		return theatername;
@@ -34,12 +34,12 @@ public class Theater {
 		this.theatername = theatername;
 	}
 
-	public int getAvailableseats() {
-		return availableseats;
+	public float getPrice() {
+		return price;
 	}
 
-	public void setAvailableseats(int availableseats) {
-		this.availableseats = availableseats;
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public List<Movie> getAssignedmovies() {
@@ -52,8 +52,7 @@ public class Theater {
 
 	@Override
 	public String toString() {
-		return "Theater [theatername=" + theatername + ", availableseats=" + availableseats + ", assignedmovies="
-				+ assignedmovies + "]";
+		return "Theater [theatername=" + theatername + ", price=" + price + ", assignedmovies=" + assignedmovies + "]";
 	}
 
 }

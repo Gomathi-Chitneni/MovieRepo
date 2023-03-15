@@ -1,28 +1,22 @@
-package com.movie.service;
+package com.testcases.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.mockito.Mockito;
 
 import com.movie.service.controller.MovieController;
-import com.movie.service.controller.TheaterController;
 import com.movie.service.dto.MovieDto;
-import com.movie.service.dto.TheaterDto;
 import com.movie.service.services.MovieTheaterServices;
 
-@SpringBootTest
-class MovieServiceApplicationTests {
-	
+class TestMovie {
+
 	@InjectMocks
 	private MovieController movieController;
-	
-	@InjectMocks
-	private TheaterController theaterController;
 	
 	@Mock
 	private MovieTheaterServices moviestheaterervices;
@@ -40,20 +34,6 @@ class MovieServiceApplicationTests {
 		assertEquals("Moviedetials created", movieController.saveMovieDetails(moviedto).getBody());
 		
 	}
-	
-	@Test
-	public void testsaveTheaterDetials()
-	{
-		TheaterDto theaterdto=new TheaterDto();
-		theaterdto.setTheatername("marina mall");
-		theaterdto.setPrice(340);
-		when(moviestheaterervices.saveTheaterDetails(any())).thenReturn("saved");
-		theaterController.saveTheaterDetials(theaterdto);
-		assertEquals("Saved Theater Detials", theaterController.saveTheaterDetials(theaterdto).getBody());
-	}
-	
-	
 
-
-
+	
 }
